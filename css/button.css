@@ -1,0 +1,39 @@
+:root {
+  --btn-text: rgb(59, 3, 122);
+  --btn-bg: rgba(103, 12, 207, 0.747);
+  --btn-br: rgba(86, 5, 179, 0.647);
+  --btn-radius: 1em;
+
+  --btn-act-text: rgba(163, 89, 248, 0.808);
+  --btn-act-bg: rgba(62, 5, 128, 0.884);
+  --btn-act-br: rgba(137, 46, 221, 0.596);
+}
+
+.btn {
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  border-color: var(--btn-br);
+  border-radius: 1em;
+  font-family: inherit;
+}
+
+.btn:active, .act {
+  color: var(--btn-act-text);
+  background-color: var(--btn-act-bg);
+  border-color: var(--btn-act-br);
+}
+
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}
+
+.exit {
+  height: 25px;
+  width: 25px;
+  border-radius: 1em;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

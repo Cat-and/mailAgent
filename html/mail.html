@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>
+    Read mail
+  </title>
+  <link href="../css/mail.css" rel="stylesheet" />
+  <link href='../css/windowDrag.css' rel="stylesheet">
+</head>
+
+<body>
+  <div class="mail-page">
+
+    <div class="navigation-bar">
+      <div id="to-menu">
+        <div class="arrow prev"></div>
+        <div>menu</div>
+      </div>
+    </div>
+
+    <div class="message">
+      <div class="message-title">
+        <p>Mail from: <span id="title-from"></span>
+        </p>
+        <p>To: <span id="title-to"></span>
+        </p>
+        <p class="end-title">Message</p>
+      </div>
+
+      <div id="message-field">
+        <div id="message-text"></div>
+        <div id="attached-field"></div>
+      </div>
+    </div>
+
+    <div class="navigation-bar bottom">
+      <div class="arrow prev" id="to-prev"></div>
+      <div class="arrow next" id="to-next"></div>
+    </div>
+  </div>
+  <script src="../src/renderers/mail.js"></script>
+</body>
+
+</html>

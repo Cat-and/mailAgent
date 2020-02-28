@@ -1,0 +1,36 @@
+@import "constants.css";
+
+html,
+body {
+  margin: 0;
+  background-color: transparent;
+}
+.error-page {
+  position: relative;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  border-radius: var(--br-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.text {
+  margin : 5px 0;
+}
+p {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 5px 0;
+}
+
+.title {
+ font-size: 1.2rem;
+ color: rebeccapurple;
+ font-weight: bold;
+}
+
+#go-login {
+  width: 5rem;
+}

@@ -1,0 +1,67 @@
+@import "constants.css";
+
+:root {
+  --body-bg-color : rgba(15, 46, 131, 0);
+  --shadow-color:   black;
+  --text-color:     darkgrey;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--body-bg-color);
+}
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  min-width: 200px;
+  width: 100%;
+  padding: 10px 30px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  border-radius: var(--br-radius);
+  background-color: var(--bg-color);
+}
+
+p {
+  font-size: 0.8em;
+  color: var(--text-color);
+  margin: 10px 0 5px;
+}
+
+.label {
+  height: 20px;
+  width: 100%;
+  align-self: center;
+  font-size: 1.2em;
+  color: var(--label-text-color);
+}
+
+.btn {
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  border-color: var(--btn-br);
+  border-radius: 1em;
+  font-family: inherit;
+}
+
+.btn:active {
+  color: var(--btn-act-text-color);
+  background-color: var(--btn-act-bg-color);
+  border-color: var(--btn-color);
+}
+.sub { 
+  align-self: center;
+  width: 30%;
+  height: 30px;
+  margin: 10px 0;
+}
+

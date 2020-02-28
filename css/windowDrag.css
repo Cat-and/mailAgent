@@ -1,0 +1,14 @@
+body {
+  -webkit-app-region: drag;
+}
+
+button,
+input,
+.arrow,
+#to-menu,
+#messages-list,
+.message,
+.title,
+.message-title > p > span {
+  -webkit-app-region: no-drag;
+}

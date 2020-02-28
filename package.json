@@ -1,0 +1,21 @@
+{
+  "name": "nail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^8.0.0"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0",
+    "emailjs-imap-client": "^3.1.0",
+    "emailjs-mime-codec": "^2.0.9",
+    "emailjs-mime-parser": "^2.0.7"
+  }
+}

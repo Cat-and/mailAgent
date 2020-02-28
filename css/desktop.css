@@ -1,0 +1,95 @@
+@import "constants.css";
+@import "scroll.css";
+
+/*
+* Добавить блок рекламы про курсовые работы
+*/
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-page {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  border-radius: var(--br-radius);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.task-bar {
+  display: flex;
+  align-self: flex-end;
+  color: black;
+}
+
+#category {
+  margin: 0;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-height: 95%;
+  margin: 5px 0;
+}
+
+#message-categories {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: auto;
+  align-self: flex-start;
+
+}
+
+.btn {
+  height: 30px;
+  margin: 1px 0;
+  color: black;
+}
+
+#messages-list {
+  width: 80%;
+  margin: 0 10px;
+  justify-items: flex-start;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.message {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 10px 5px 0;
+}
+
+.Unseen {
+  background-color: rgb(160, 79, 197);
+}
+
+.ch-btn {
+  align-self: center;
+  margin: 0 5px;
+}
+
+.title {
+  padding: 5px 0;
+  width: 100%;
+  border: 1px dotted var(--border);
+  box-sizing: border-box;
+}
+
+.title > p {
+  margin: 0 10px;
+  font-size: 0.8rem;
+}
+

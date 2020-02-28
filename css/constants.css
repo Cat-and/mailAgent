@@ -1,0 +1,18 @@
+:root {
+  --br-radius: 1.7em;
+  --font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --image-arrow: url("../assets/img/arrow.png");
+  --bg-color:  #eee;
+
+  --label-text-color: rgba(26, 25, 25, 0.808);
+}
+
+
+#to-menu > div:hover,
+.arrow:hover,
+.attached-document,
+.btn,
+.message-title > p > span:hover {
+  cursor: pointer ;
+}
+

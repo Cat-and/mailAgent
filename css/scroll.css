@@ -1,0 +1,15 @@
+:root {
+  --main-color: rgba(103, 12, 207, 0.5);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --border: rgba(103, 12, 207, 0.8);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--main-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--shadow);
+}

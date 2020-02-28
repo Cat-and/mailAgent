@@ -1,0 +1,107 @@
+@import "constants.css";
+@import "scroll.css";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.mail-page {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: var(--br-radius);
+  height: 100%;
+
+}
+
+button {
+  border: 0;
+  text-align: start;
+}
+
+.arrow {
+  background-image: var(--image-arrow);
+  background-color: var(--bg-color);
+  background-size: cover;
+  width: 15px;
+  height: 100%;
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.navigation-bar {
+  width: calc(100% - 10px);
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.message-title > p {
+  border: royalblue 1px solid;
+  display: flex;
+  flex-direction: row;
+  white-space: pre;
+}
+
+.message-title > p >span {
+  color: rgb(30, 5, 143);
+}
+.message-title > p > span:hover {
+  color: rgb(158, 14, 194);
+}
+
+#to-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.message {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.end-title {
+  border-bottom: 1px dotted var(--border);
+  width: 60%;
+}
+.bottom {
+  justify-content: space-between;
+}
+
+#attached-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.attached-document {
+  width: 100px;
+  height: 100px;
+  border: 1px firebrick dotted;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.attached-document > div { 
+width: 100%;
+height: 100%;
+}
+
+.attached-document > p {
+  font-size: .7rem;
+  position: absolute;
+  bottom: 0px;
+  margin: 0;
+} 
