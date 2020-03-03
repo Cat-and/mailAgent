@@ -16,7 +16,7 @@ const {
 
 const authorization = async (user) => {
   const client = new ImapClient('imap.mail.ru', 993, {
-    //logLevel: 1000,
+    logLevel: 1000,
     auth: {
       user: user.login,
       pass: user.password,
@@ -33,7 +33,6 @@ const authorization = async (user) => {
       return client
     })
     .catch(error => {
-      console.log("Error: " + error)
       throw error
     })
 }
@@ -67,12 +66,9 @@ const getContent = (childNode) => {
 }
 
 const recieve_message = async (client, boxPath, countGetMessages) => {
-  console.log(countGetMessages)
-  const mailbox_info = await client.selectMailbox(boxPath)
-  const countMess = mailbox_info.exists
-  const rangeMess = (countMess - countGetMessages) + ':' + countMess
-  console.log(rangeMess)
-  return client.listMessages(boxPath, rangeMess, ['uid', 'flags', 'envelope', 'body[]', 'bodystructure'])
+  const countMess = (await client.selectMailbox(boxPath)).exists
+  const rangeMess = (countMess <= countGetMessages ? 0 : (countMess - countGetMessages)) + ':' + countMess
+  return client.listMessages(boxPath, rangeMess, ['uid', 'flags', 'envelope', 'body.peek[]', 'bodystructure'])
     .then(mes => {
       return mes.map((message, i) => {
         CONTENT = []
@@ -104,4 +100,16 @@ const recieve_mailbox = (client) => {
 
 }
 
-module.exports = { authorization, recieve_message, recieve_mailbox };
+const delete_message = (client, path, uid) => {
+  try {
+    uid.map(element => {
+      client.deleteMessages(path, element, { byUid: true })
+    })
+    return true
+  }
+  catch (err) {
+    return false
+  }
+}
+
+module.exports = { authorization, recieve_message, recieve_mailbox, delete_message };

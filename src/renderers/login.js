@@ -8,7 +8,6 @@ document.addEventListener("keydown", (event) => {
 })
 
 document.getElementById('login_form').onsubmit = (event) => {
-  console.log(123123)
   const login = document.getElementById("log").value.replace(/\s/g,'')
   const password = document.getElementById("pass").value.replace(/\s/g,'')
   if(login == '' || password == '') return;

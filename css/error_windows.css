@@ -16,13 +16,17 @@ body {
   padding: 10px 30px;
 }
 
-.text {
+#message {
   margin : 5px 0;
 }
 p {
   font-size: 1.1rem;
   text-align: center;
   margin: 5px 0;
+}
+
+.text {
+  margin: 10px 0;
 }
 
 .title {
