@@ -1,10 +1,12 @@
 import "../appLogic.js"
 
 window.onload = () => {
-  const mailboxList = ipcRenderer.sendSync('recieve_mailbox')
-  const currentMailbox = ipcRenderer.sendSync('get_current_mailbox')
-  window.ipcRenderer.send('recieve_messages', currentMailbox)
+  const mailboxList = window.ipcRenderer.sendSync('recieve_mailbox')
+  createMailboxButtons(mailboxList)
+  window.ipcRenderer.send('recieve_messages')
+}
 
+const createMailboxButtons = (mailboxList) => {
   mailboxList.map(el => {
     let button = document.createElement('button')
     button.className = "btn categ"
@@ -22,7 +24,7 @@ window.onload = () => {
 }
 
 const createMessage = (list) => {
-  return list.reverse().map((message, ind) => {
+  return list.reverse().map((message) => {
     let from = document.createElement('p')
     from.textContent = 'From: '
     message.from.map((el) => {
@@ -53,7 +55,7 @@ const createMessage = (list) => {
     let checkboxBut = document.createElement('input')
     checkboxBut.className = "ch-btn"
     checkboxBut.type = 'checkbox'
-    checkboxBut.value = ind
+    checkboxBut.value = message.id
 
     let messageDiv = document.createElement('div')
     messageDiv.className = "message "
@@ -65,22 +67,41 @@ const createMessage = (list) => {
 
 const createNoMess = () => {
   let noMess = document.createElement("p")
-  noMess.className = "no "+"message "
+  noMess.className = "no " + "message "
   noMess.textContent = "No messages"
   document.getElementById("messages-list").append(noMess)
 }
 
+const removeMessageList = (messagesList) => {
+  for (let i = 0; i < messagesList.length; i++) {
+    document.getElementById("messages-list").removeChild(messagesList[i])
+  }
+}
+
 window.ipcRenderer.on("message-reply", (event, list) => {
   let arrayList = Array.from(document.getElementsByClassName("message "))
-  for(let i=0; i<arrayList.length; i++) {
-    document.getElementById("messages-list").removeChild(arrayList[i])
-  }
+  removeMessageList(arrayList)
 
   const messagesDivList = createMessage(list)
-  if(messagesDivList.length == 0) {
+  if (messagesDivList.length == 0) {
     createNoMess()
   }
   messagesDivList.map((messageBlock) => {
     document.getElementById("messages-list").append(messageBlock)
   })
 })
+
+document.getElementById('delete').onclick = async () => {
+  const messages = Array.from(document.getElementsByClassName('ch-btn'))
+  let selectedMessages = []
+  let count = 0;
+  for (let i = 0; i < messages.length; i++) {
+    if (messages[i].checked) {
+      selectedMessages[count] = messages[i].value;
+      count++;
+    }
+  }
+  if (selectedMessages.length > 0) {
+    await ipcRenderer.send('deleteMasseges', selectedMessages)
+  }
+}

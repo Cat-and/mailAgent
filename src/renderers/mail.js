@@ -4,7 +4,6 @@ document.getElementById("to-menu").onmouseup = (event) => {
 
 window.onload = () => {
   const currentMessage = ipcRenderer.sendSync('get_current_message') 
-  console.log(currentMessage)
 
   currentMessage.from.map((addr) => {
     document.getElementById("title-from").textContent += " " + addr.address
@@ -28,7 +27,6 @@ currentMessage.content.map(element => {
     attach_doc.append(content)
     attach_doc.append(name)
     document.getElementById("attached-field").append(attach_doc)
-
   }
 })
 
