@@ -1,3 +1,5 @@
+@import "windowDrag.css";
+
 :root {
   --br-radius: 1.7em;
   --font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -5,6 +7,7 @@
   --bg-color:  #eee;
 
   --label-text-color: rgba(26, 25, 25, 0.808);
+  --main-color: rgb(59, 3, 122);
 }
 
 

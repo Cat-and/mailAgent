@@ -1,29 +1,40 @@
 window.onload = () => {
-  const error =  window.ipcRenderer.sendSync('get_error')
-  if(error.includes("No connection"))
-  {
-    createMEssageError(error, "Check your internet connection")
+  const info = window.ipcRenderer.sendSync('get_info')
+  if (info.includes("Could not open")) {
+    createMessageError('Error: Could not open socket:', "Check your internet connection")
+    buttonBehavior('open_login_form')
   }
-  if(error.includes("Authorization error"))
-  {
-    createMEssageError(error, "Enter another login or password")
+  if (info.includes("Authentication failed")) {
+    createMessageError('Authentication failed', "Enter another login or password")
+    buttonBehavior('open_login_form')
+  }
+  if (info.includes("Success")) {
+    createMessageError(info, "Message sent")
+    buttonBehavior('open_desktop')
+  }
+  if (info.includes("Message not sent")) {
+    createMessageError(info, "Try another time")
+    buttonBehavior('open_desktop')
   }
 }
 
-const createMEssageError = (title, text) => {
+
+const createMessageError = (title, text) => {
   let warningTitle = document.createElement('p')
   warningTitle.textContent = title
   warningTitle.className = "title"
   let warningText = document.createElement('p')
-  warningText.textContent= text
+  warningText.textContent = text
   warningText.className = 'text'
   document.getElementById('message').append(warningTitle)
   document.getElementById('message').append(warningText)
-  
+
 }
 
-document.getElementById('go-login').onclick = (event)=>  {
-window.ipcRenderer.send('open_login_form');
+const buttonBehavior = (open_win) => {
+  document.getElementById('go-login').onclick = (event) => {
+    window.ipcRenderer.send(open_win);
+  }
 }
 
 document.addEventListener("keydown", (event) => {

@@ -1,16 +1,12 @@
 <html>
 
 <head>
-  <title>
-    Read mail
-  </title>
-  <link href="../css/mail.css" rel="stylesheet" />
-  <link href='../css/windowDrag.css' rel="stylesheet">
+  <title>Send Letter</title>
+  <link href="../css/sendMail.css" rel="stylesheet" />
 </head>
 
 <body>
   <div class="mail-page">
-
     <div class="navigation-bar">
       <div id="to-menu">
         <div class="arrow prev"></div>
@@ -22,23 +18,21 @@
       <div class="message-title">
         <p>Mail from: <span id="title-from"></span>
         </p>
-        <p>To: <span id="title-to"></span>
+        <p>To: <input type="email" id="title-to" autofocus />
+        </p>
+        <p>Subj: <input type="text" id="subj" />
         </p>
         <p class="end-title">Message</p>
       </div>
-
       <div id="message-field">
-        <div id="message-text"></div>
-        <div id="attached-field"></div>
+        <button class="btn add" id="add-file">Add file</button>
+        <div id ="attachments"></div>
+        <textarea id="message"></textarea>
       </div>
     </div>
-
-    <div class="navigation-bar bottom">
-      <div class="arrow prev" id="to-prev"></div>
-      <div class="arrow next" id="to-next"></div>
-    </div>
+    <button class = "btn position" id = "submit">Submit</button>
   </div>
-  <script src="../src/renderers/mail.js"></script>
+  <script src="../src/renderers/sendMail.js"></script>
 </body>
 
 </html>

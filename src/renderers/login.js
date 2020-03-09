@@ -11,5 +11,5 @@ document.getElementById('login_form').onsubmit = (event) => {
   const login = document.getElementById("log").value.replace(/\s/g,'')
   const password = document.getElementById("pass").value.replace(/\s/g,'')
   if(login == '' || password == '') return;
-  window.ipcRenderer.send('authorization', { login, password });
+  window.ipcRenderer.send('log_in', { login, password });
 }
