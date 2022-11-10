@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^8.1.0",
+    "electron": "^18.3.7",
     "emailjs-smtp-client": "^2.0.1"
   },
   "dependencies": {
